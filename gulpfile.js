@@ -52,7 +52,7 @@ function getTemplateCache() {
 	return gulp.src(templates)
 		.pipe(plumber())
 		.pipe(htmlmin({ collapseWhitespace: true }))
-		.pipe(templateCache('templates.js', {
+		.pipe(templateCache({
 			module: 'angular-sidebar.directives'
 		}));
 }

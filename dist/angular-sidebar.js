@@ -25,7 +25,6 @@
 
 })(angular);
 
-angular.module("angular-sidebar.directives").run(["$templateCache", function($templateCache) {$templateCache.put("angular-sidebar/directives/sidebar.tpl.html","<b>hola mundo</b><div>varios divs con saltos de línea!!!</div><div>comprobar compresión!!</div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
@@ -47,3 +46,4 @@ angular.module('angular-sidebar').directive('sidebar', [
 		};
 	}
 ]);
+angular.module("angular-sidebar.directives").run(["$templateCache", function($templateCache) {$templateCache.put("angular-sidebar/directives/sidebar.tpl.html","<b>hola mundo</b><div>varios divs con saltos de línea!!!</div><div>comprobar compresión!!</div>");}]);
