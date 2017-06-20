@@ -1,0 +1,35 @@
+{
+  "generator-angular-package": {
+    "props": {
+      "moduleName": "angular-sidebar",
+      "description": "angular sidebar fully responsive",
+      "gitUrl": "https://github.com/joneldiablo/angular-sidebar.git",
+      "keywords": "[\"angularJS\",\"sidebar\",\"responsive\",\"bootstrap\"]",
+      "license": "MIT",
+      "author": {
+        "name": "Jonatha D Rodriguez",
+        "email": "jonathan.rodriguez@gonet.us"
+      },
+      "yourModule": {
+        "original": "angular-sidebar",
+        "camelized": "angularSidebar",
+        "dasherized": "angular-sidebar",
+        "slugified": "angular-sidebar",
+        "parts": [
+          "angular",
+          "sidebar"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": false,
+      "includeModuleServices": false,
+      "includeModuleControllers": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "moduleDirectory": "modules/angular-sidebar",
+      "moduleUnitTestDirectory": "test/unit/angular-sidebar",
+      "moduleUnitE2eDirectory": "test/e2e/angular-sidebar"
+    }
+  }
+}

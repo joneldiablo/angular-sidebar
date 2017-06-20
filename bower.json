@@ -1,0 +1,35 @@
+{
+  "name": "angular-sidebar",
+  "version": "0.1.0",
+  "description": "angular sidebar fully responsive",
+  "keywords": ["angularJS","sidebar","responsive","bootstrap"],
+  "authors": [
+    {
+      "name": "Jonatha D Rodriguez",
+      "email": "jonathan.rodriguez@gonet.us"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joneldiablo/angular-sidebar.git"
+  },
+  "license": "MIT",
+  "main": [
+    "dist/angular-sidebar.js",
+    "dist/angular-sidebar.css"
+    ],
+  "ignore": [
+    "*.*",
+    "bower",
+    "modules",
+    "node_modules",
+    "src",
+    "test"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0"
+  }
+}
