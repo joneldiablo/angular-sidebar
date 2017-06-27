@@ -20,8 +20,9 @@
   },
   "license": "MIT",
   "main": [
-    "dist/angular-sidebar.min.js",
-    "dist/angular-sidebar.css"
+    "./dist/angular-sidebar.min.js",
+    "./dist/angular-sidebar.js",
+    "./dist/angular-sidebar.css"
   ],
   "ignore": [
     "*.*",
