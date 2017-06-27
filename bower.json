@@ -11,7 +11,7 @@
   "authors": [
     {
       "name": "Jonatha D Rodriguez",
-      "email": "jonathan.rodriguez@gonet.us"
+      "email": "jon_eldiablo@hotmail.com"
     }
   ],
   "repository": {
@@ -20,7 +20,6 @@
   },
   "license": "MIT",
   "main": [
-    "dist/angular-sidebar.js",
     "dist/angular-sidebar.min.js",
     "dist/angular-sidebar.css"
   ],
