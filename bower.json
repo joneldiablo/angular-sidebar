@@ -2,7 +2,12 @@
   "name": "angular-sidebar",
   "version": "0.1.0",
   "description": "angular sidebar fully responsive",
-  "keywords": ["angularJS","sidebar","responsive","bootstrap"],
+  "keywords": [
+    "angularJS",
+    "sidebar",
+    "responsive",
+    "bootstrap"
+  ],
   "authors": [
     {
       "name": "Jonatha D Rodriguez",
@@ -16,8 +21,9 @@
   "license": "MIT",
   "main": [
     "dist/angular-sidebar.js",
+    "dist/angular-sidebar.min.js",
     "dist/angular-sidebar.css"
-    ],
+  ],
   "ignore": [
     "*.*",
     "bower",
