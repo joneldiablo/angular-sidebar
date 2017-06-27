@@ -25,6 +25,7 @@
 
 })(angular);
 
+angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"angular-sidebar-transclude\"><div>{{title}}</div><ng-transclude></ng-transclude></div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
@@ -47,4 +48,3 @@ angular.module('angular-sidebar').directive('sidebar', [
 		};
 	}
 ]);
-angular.module("angular-sidebar.directives").run(["$templateCache", function($templateCache) {$templateCache.put("angular-sidebar/directives/sidebar.tpl.html","<div class=\"angular-sidebar-transclude\"><div>{{title}}</div><ng-transclude></ng-transclude></div>");}]);

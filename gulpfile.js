@@ -53,7 +53,9 @@ function getTemplateCache() {
 		.pipe(plumber())
 		.pipe(htmlmin({ collapseWhitespace: true }))
 		.pipe(templateCache({
-			module: 'angular-sidebar.directives'
+			module: 'angular-sidebar.directives',
+			standalone: true,
+			root: '/modules/',
 		}));
 }
 
