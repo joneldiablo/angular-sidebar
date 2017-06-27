@@ -7,9 +7,9 @@
   <script src="./dist/angular-sidebar.js"></script>
   <script>
     angular.module("app", ['angular-sidebar'])
-      .run(function($rootScope) {
+      .run(function ($rootScope) {
         $rootScope.something = 'value'
-      }).controller('TesterCtrl', function($scope) {
+      }).controller('TesterCtrl', function ($scope) {
         console.log('Tester Controller loaded.');
       });
   </script>
@@ -18,7 +18,7 @@
 <body>
   <div ng-controller="TesterCtrl">
     <p>Use this to demo your component/s.</p>
-    <sidebar></sidebar>
+    <sidebar title="Título">texto dentro!!</sidebar>
   </div>
 </body>
 

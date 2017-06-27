@@ -25,6 +25,7 @@
 
 })(angular);
 
+angular.module("angular-sidebar.directives").run(["$templateCache", function($templateCache) {$templateCache.put("angular-sidebar/directives/sidebar.tpl.html","<div class=\"angular-sidebar\"><div>{{title}}</div><ng-transclude></ng-transclude></div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
@@ -35,8 +36,9 @@ angular.module('angular-sidebar').directive('sidebar', [
 			//template: '<div></div>',
 			templateUrl: '/modules/angular-sidebar/directives/sidebar.tpl.html',
 			restrict: 'EA',
+			transclude: true,
 			replace: false,
-			scope: false,
+			scope: { title: '@' },
 			link: function postLink(scope, element, attrs) {
 				// Sidebar directive logic
 				// ...
@@ -46,4 +48,3 @@ angular.module('angular-sidebar').directive('sidebar', [
 		};
 	}
 ]);
-angular.module("angular-sidebar.directives").run(["$templateCache", function($templateCache) {$templateCache.put("angular-sidebar/directives/sidebar.tpl.html","<b>hola mundo</b><div>varios divs con saltos de línea!!!</div><div>comprobar compresión!!</div>");}]);

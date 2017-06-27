@@ -8,8 +8,9 @@ angular.module('angular-sidebar').directive('sidebar', [
 			//template: '<div></div>',
 			templateUrl: '/modules/angular-sidebar/directives/sidebar.tpl.html',
 			restrict: 'EA',
+			transclude: true,
 			replace: false,
-			scope: false,
+			scope: { title: '@' },
 			link: function postLink(scope, element, attrs) {
 				// Sidebar directive logic
 				// ...
