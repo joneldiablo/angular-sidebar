@@ -10,15 +10,49 @@
       .run(function ($rootScope) {
         $rootScope.something = 'value'
       }).controller('TesterCtrl', function ($scope) {
+        $scope.astWidths = { xs: "100%", lg: "420px" }
         console.log('Tester Controller loaded.');
       });
   </script>
+  <style>
+    body {
+      background-color: #EBEFF2;
+    }
+  </style>
 </head>
 
 <body>
   <div ng-controller="TesterCtrl">
     <p>Use this to demo your component/s.</p>
-    <sidebar title="Título">texto dentro!!</sidebar>
+    <sidebar class="inset">
+      <ast-header>header</ast-header>
+      <ast-body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suscipit dolor sit amet nisi cursus laoreet. Sed nibh
+        neque, rutrum et tempus ut, imperdiet at libero. Maecenas a massa vitae dolor porta interdum. Morbi non maximus ipsum.
+        Quisque non elit auctor, convallis libero eu, pellentesque magna. Suspendisse tempus nisi sit amet enim posuere faucibus.
+        Nam vel ante vel risuslobortisultrices. Sedaultriciestortor. Null apellentesquenisivel vehicula pharetra. Duis nisi
+        lectus, porta non nisl in, accumsan ultricies est. Aliquam dolor neque, fermentum non interdum a, molestie a ex.
+        Morbi nulla justo, accumsan a pellentesque eu, sollicitudin eu diam. Sed varius enim et eleifend hendrerit. Etiam
+        ullamcorper massa placerat commodo sollicitudin. Donec felis sapien, bibendum blandit lacinia nec, hendrerit ut nunc.
+        Quisque aliquam leo ut lacus accumsan, sit amet tincidunt velit venenatis. Sed porta vel enim nec condimentum. Quisque
+        eu fermentum dolor. Aliquam erat volutpat. Nulla facilisi. Phasellus congue feugiat dolor, lobortis facilisis dolor
+        molestie a. Donec mollis mauris ut metus lacinia, at dictum nulla aliquet. Praesent vulputate nisi nec fermentum
+        lobortis. Proin ut magna et justo dignissim vehicula. Duis ex erat, ultricies et ultrices id, varius sit amet elit.
+        Vestibulum ullamcorper, erat sed mattis hendrerit, turpis felis porta dui, et vestibulum dolor ex eget arcu. Donec
+        commodo euismod massa, ac auctor ipsum consequat quis. Phasellus id dignissim erat. Suspendisse ac rutrum dolor,
+        quis faucibus sem. Praesent vestibulum dictum purus, eu pretium turpis pulvinar fermentum. Duis orci magna, aliquet
+        eget lacus vitae, faucibus ornare velit. Maecenas bibendum erat mollis congue tincidunt. Integer hendrerit velit
+        lorem, eu efficitur risus cursus nec. Cras tempus scelerisque laoreet. Aenean elementum nisl ut orci venenatis, sit
+        amet malesuada purus sodales. Aliquam erat volutpat. Donec sapien metus, rutrum a nisl et, vestibulum eleifend neque.
+        Quisque ut libero a nisi faucibus posuere ut eget lorem. Aenean ut est sit amet diam varius tincidunt. Vivamus ultrices
+        orci id turpis volutpat, sed rhoncus velit blandit. Nam faucibus, quam in euismod consectetur, eros sem semper lacus,
+        ut convallis magna ex vel ex. Ut tortor ex, aliquam eu tellus eu, ultrices hendrerit ante. Praesent at augue auctor,
+        mollis massa a, pulvinar dolor. Aenean gravida vel sem non mollis. Aliquam gravida sollicitudin suscipit. Morbi eget
+        vestibulum justo. Nulla sodales, nisl ac sollicitudin pretium, massa sem interdum neque, sed tempus enim libero quis
+        felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus dui
+        nibh, ac aliquet mauris mattis sed. Etiam malesuada ante lacinia dui placerat, non sagittis leo iaculis. Aliquam
+        ultricies arcu non maximus facilisis.</ast-body>
+      <ast-footer>footer</ast-footer>
+    </sidebar>
   </div>
 </body>
 

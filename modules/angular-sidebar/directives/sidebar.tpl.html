@@ -1,4 +1,5 @@
-<div class="angular-sidebar-transclude">
-    <div>{{title}}</div>
-    <ng-transclude></ng-transclude>
+<div class="ast">
+    <div class="ast-header" ng-transclude="header"></div>
+    <div class="ast-body" ng-transclude="body"></div>
+    <div class="ast-footer" ng-transclude="footer"></div>
 </div>

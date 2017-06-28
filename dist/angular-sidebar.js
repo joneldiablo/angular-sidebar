@@ -25,7 +25,6 @@
 
 })(angular);
 
-angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"angular-sidebar-transclude\"><div>{{title}}</div><ng-transclude></ng-transclude></div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
@@ -36,10 +35,20 @@ angular.module('angular-sidebar').directive('sidebar', [
 			//template: '<div></div>',
 			templateUrl: '/modules/angular-sidebar/directives/sidebar.tpl.html',
 			restrict: 'EA',
-			transclude: true,
+			transclude: {
+				'header': '?astHeader',
+				'body': 'astBody',
+				'footer': '?astFooter'
+			},
 			replace: false,
-			scope: { title: '@' },
+			scope: {
+				widths: '=',
+				heights: '=',
+			},
 			link: function postLink(scope, element, attrs) {
+				scope.hh = element[0].querySelector(".ast-header").offsetHeight;
+				scope.hf = element[0].querySelector(".ast-footer").offsetHeight;
+				console.log(scope.hh, scope.hf);
 				// Sidebar directive logic
 				// ...
 
@@ -48,3 +57,4 @@ angular.module('angular-sidebar').directive('sidebar', [
 		};
 	}
 ]);
+angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"ast\"><div class=\"ast-header\" ng-transclude=\"header\"></div><div class=\"ast-body\" ng-transclude=\"body\"></div><div class=\"ast-footer\" ng-transclude=\"footer\"></div></div>");}]);
