@@ -1,60 +1,89 @@
 (function (angular) {
 
-  // Create all modules and define dependencies to make sure they exist
-  // and are loaded in the correct order to satisfy dependency injection
-  // before all nested files are concatenated by Gulp
+    // Create all modules and define dependencies to make sure they exist
+    // and are loaded in the correct order to satisfy dependency injection
+    // before all nested files are concatenated by Gulp
 
-  // Config
-  angular.module('angular-sidebar.config', [])
-      .value('angular-sidebar.config', {
-          debug: true
-      });
+    // Config
+    angular.module('angular-sidebar.config', [])
+        .value('angular-sidebar.config', {
+            debug: true
+        });
 
-  // Modules
-  
-  angular.module('angular-sidebar.directives', []);
-  
-  
-  
-  
-  angular.module('angular-sidebar',
-      [
-        'angular-sidebar.config',
-        'angular-sidebar.directives'
-      ]);
+    // Modules
+
+    angular.module('angular-sidebar.directives', []);
+
+
+
+
+    angular.module('angular-sidebar',
+        [
+            'angular-sidebar.config',
+            'angular-sidebar.directives',
+            'ngTouch'
+        ]);
 
 })(angular);
 
+angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"ast-wrap\" ng-class=\"{mask:mask}\" ng-show=\"show\" ng-click=\"show=false\"><div class=\"ast\" ng-swipe-right=\"show = position == \'right\'? false: show\" ng-swipe-left=\"show = position == \'left\'? false: show\" ng-class=\"[display, position]\"><header class=\"ast-header\"><div ng-transclude=\"header\"><h4 style=\"text-align: center; margin: 16px 0\">header</h4></div><div class=\"ast-close\" ng-transclude=\"close\"><span ng-click=\"show = false\" style=\"text-align: center; width: 100%; display: block; padding: 26px 16px; box-sizing: border-box; cursor: pointer\">X</span></div></header><aside class=\"ast-body\" ng-transclude></aside><footer class=\"ast-footer\" ng-transclude=\"footer\"><h4 style=\"text-align: center; margin: 11px 0\">footer</h4></footer></div></div><div ng-show=\"!show && swipeToOpen\" ng-swipe-right=\"show = position == \'right\'? show: true\" ng-swipe-left=\"show = position == \'left\'? show: true\" class=\"ast-swipe-show\" ng-class=\"position\"></div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
 'use strict';
-angular.module('angular-sidebar').directive('sidebar', [
-	function () {
+angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
+	function ($compile, $swipe) {
 		return {
 			//template: '<div></div>',
 			templateUrl: '/modules/angular-sidebar/directives/sidebar.tpl.html',
 			restrict: 'EA',
 			transclude: {
 				'header': '?astHeader',
-				'body': 'astBody',
+				'close': '?astClose',
 				'footer': '?astFooter'
 			},
-			replace: false,
 			scope: {
-				widths: '=',
-				heights: '=',
+				contentSelector: '@',
+				position: '=?',
+				display: '=?',
+				show: '=?',
+				swipeToOpen: '=?',
+				mask: '=?'
 			},
+			replace: false,
 			link: function postLink(scope, element, attrs) {
-				scope.hh = element[0].querySelector(".ast-header").offsetHeight;
-				scope.hf = element[0].querySelector(".ast-footer").offsetHeight;
-				console.log(scope.hh, scope.hf);
-				// Sidebar directive logic
-				// ...
+				scope.show = typeof scope.show === 'undefined' ? true : scope.show;
+				scope.position = typeof scope.position !== 'undefined' ? scope.position : 'left';
+				scope.display = typeof scope.display !== 'undefined' ? scope.display : 'overlay';
+				scope.mask = typeof scope.mask !== 'undefined' ? scope.mask : false;
+				scope.swipeToOpen = typeof scope.swipeToOpen === 'undefined' ? true : scope.swipeToOpen;
+				scope.contentSelector = !scope.contentSelector ? 'body' : scope.contentSelector;
+				scope.container = angular.element(document.querySelector(scope.contentSelector));
+				var container = scope.container;
+				var ast = angular.element(element[0].querySelector('.ast'));
+				ast.on("click", function ($event) {
+					$event.stopPropagation();
+				});
+				scope.$watch('position', function (value, oldValue) {
+					container.removeClass(oldValue);
+					container.addClass(value);
+				}, true);
+				scope.$watch('display', function (value, oldValue) {
+					if (value === 'push' || value === 'reveal') {
+						container.addClass('ast-fixed');
 
-				//element.text('this is the sidebar directive');
+					} else {
+						container.removeClass('ast-fixed');
+					}
+				}, true);
+				scope.$watch('show', function watchShow(value, oldValue) {
+					if (value) {
+						container.removeClass('close');
+					} else {
+						container.addClass('close');
+					}
+				}, true);
 			}
 		};
 	}
 ]);
-angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"ast\"><div class=\"ast-header\" ng-transclude=\"header\"></div><div class=\"ast-body\" ng-transclude=\"body\"></div><div class=\"ast-footer\" ng-transclude=\"footer\"></div></div>");}]);

@@ -21,7 +21,7 @@
   "license": "MIT",
   "main": [
     "./dist/angular-sidebar.min.js",
-    "./dist/angular-sidebar.css"
+    "./dist/angular-sidebar.min.css"
   ],
   "ignore": [
     "*.*",
@@ -31,7 +31,9 @@
     "src",
     "test"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "angular-touch": "^1.6.4"
+  },
   "devDependencies": {
     "angular-mocks": ">=1.2.0",
     "angular-scenario": ">=1.2.0",

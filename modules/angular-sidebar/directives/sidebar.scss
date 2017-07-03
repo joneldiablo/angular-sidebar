@@ -1,55 +1,112 @@
-/* Put some style here. */
+/*variables*/
 
-sidebar {
-    position: fixed;
-    z-index: 1040;
-    height: 100%;
-    width: 280px;
-    top: 0;
-    left: 0;
+$astWidth: 280px;
+$astSwipeShowWidth: 150px;
+ast {
+    /*Structure*/
+    .ast {
+        background-color: white;
+        position: fixed;
+        z-index: 1040;
+        height: 100%;
+        width: $astWidth;
+        top: 0;
+    }
+    .ast>* {
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .ast-header {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        padding: 10px;
+    }
+    .ast-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 70px;
+    }
+    .ast-body {
+        width: calc(100% - 5px);
+        height: calc(100% - 130px);
+        padding: 10px;
+    }
+    .ast-body::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    .ast-body::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, .3);
+    }
+    .ast-footer {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+    }
+    .ast-swipe-show {
+        position: fixed;
+        width: $astSwipeShowWidth;
+        height: 100%;
+        top: 0;
+        z-index: -1;
+        background: transparent;
+    }
+    /*options*/
+    .ast-wrap.mask:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 0;
+    }
+    .ast.left {
+        left: 0;
+    }
+    .ast.right {
+        right: 0;
+    }
+    .ast.reveal.left {
+        box-shadow: inset -10px 0px 20px -15px rgba(0, 0, 0, 0.7)
+    }
+    .ast.reveal.right {
+        box-shadow: inset 10px 0px 20px -15px rgba(0, 0, 0, 0.7)
+    }
+    .ast.overlay {
+        box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, .7);
+    }
+    .ast.push {
+        box-shadow: none;
+    }
+    .ast-swipe-show.left {
+        left: 0;
+    }
+    .ast-swipe-show.right {
+        right: 0;
+    }
 }
 
-.ast {
-    background-color: white;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, .7);
-}
 
-.ast>* {
-    box-sizing: border-box;
-    overflow: auto;
-}
+/**
+ * container
+ */
 
-.inset .ast {
-    box-shadow: inset -10px 0px 20px -15px rgba(0, 0, 0, 0.7)
-}
-
-.ast-header {
-    width: 100%;
-    height: 70px;
-    padding: 10px;
-}
-
-.ast-body {
-    width: calc(100% - 5px);
-    height: calc(100% - 130px);
-    padding: 10px;
-}
-
-.ast-body::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-}
-
-.ast-body::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, .3);
-}
-
-.ast-footer {
-    width: 100%;
-    height: 60px;
-    padding: 10px;
+.ast-fixed {
+    &.left {
+        padding-left: $astWidth;
+    }
+    &.right {
+        padding-right: $astWidth;
+    }
+    &.close {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

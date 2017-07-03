@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="dist/angular-sidebar.css">
   <script src="./bower/angular/angular.js"></script>
+  <script src="./bower/angular-touch/angular-touch.min.js"></script>
   <script src="./dist/angular-sidebar.js"></script>
   <script>
     angular.module("app", ['angular-sidebar'])
@@ -23,9 +24,7 @@
 
 <body>
   <div ng-controller="TesterCtrl">
-    <p>Use this to demo your component/s.</p>
-    <sidebar class="inset">
-      <ast-header>header</ast-header>
+    <ast display="display" position="position" mask="mask" content-selector="#container" show="showAst">
       <ast-body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suscipit dolor sit amet nisi cursus laoreet. Sed nibh
         neque, rutrum et tempus ut, imperdiet at libero. Maecenas a massa vitae dolor porta interdum. Morbi non maximus ipsum.
         Quisque non elit auctor, convallis libero eu, pellentesque magna. Suspendisse tempus nisi sit amet enim posuere faucibus.
@@ -51,8 +50,16 @@
         felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus dui
         nibh, ac aliquet mauris mattis sed. Etiam malesuada ante lacinia dui placerat, non sagittis leo iaculis. Aliquam
         ultricies arcu non maximus facilisis.</ast-body>
-      <ast-footer>footer</ast-footer>
-    </sidebar>
+    </ast>
+    <div id="container">
+      show: <input type="checkbox" ng-model="showAst" />({{showAst}}) mask: <input type="checkbox" ng-model="mask" />({{mask}})
+      <select ng-model="display" ng-init="displayOptions = ['reveal','push','overlay']">
+        <option ng-repeat="opt in displayOptions" ng-value="opt">{{opt}}</option>
+      </select> ({{display}})
+      <select ng-model="position" ng-init="positionOptions = ['left','right']">
+        <option ng-repeat="opt in positionOptions" ng-value="opt">{{opt}}</option>
+      </select> ({{position}})
+    </div>
   </div>
 </body>
 

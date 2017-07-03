@@ -8,7 +8,9 @@ var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var concatCss = require('gulp-concat-css');
+var cleanCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
 var templateCache = require('gulp-angular-templatecache');
 var eventStream = require('event-stream');
@@ -75,6 +77,10 @@ gulp.task('build-stylesheets', function () {
 		// .pipe(scss({ bundleExec: true }))
 		.pipe(sass())
 		.pipe(concatCss('angular-sidebar.css'))
+		.pipe(autoprefixer())
+		.pipe(gulp.dest('./dist'))
+		.pipe(cleanCSS())
+		.pipe(rename('angular-sidebar.min.css'))
 		.pipe(gulp.dest('./dist'));
 });
 

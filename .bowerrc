@@ -2,6 +2,6 @@
   "directory": "bower",
   "main": [
     "./dist/angular-sidebar.min.js",
-    "./dist/angular-sidebar.css"
+    "./dist/angular-sidebar.min.css"
   ]
 }
