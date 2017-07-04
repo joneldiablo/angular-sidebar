@@ -24,7 +24,7 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 			replace: false,
 			link: function postLink(scope, element, attrs) {
 				scope.show = typeof scope.show === 'undefined' ? true : scope.show;
-				scope.position = typeof scope.position !== 'undefined' ? scope.position : 'left';
+				scope.position = typeof scope.position !== 'undefined' ? (scope.position) : 'left';
 				scope.display = typeof scope.display !== 'undefined' ? scope.display : 'overlay';
 				scope.mask = typeof scope.mask !== 'undefined' ? scope.mask : false;
 				scope.swipeToOpen = typeof scope.swipeToOpen === 'undefined' ? true : scope.swipeToOpen;
@@ -36,8 +36,8 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 					$event.stopPropagation();
 				});
 				scope.$watch('position', function (value, oldValue) {
-					container.removeClass(oldValue);
-					container.addClass(value);
+					container.removeClass("ast-" + oldValue);
+					container.addClass("ast-" + value);
 				}, true);
 				scope.$watch('display', function (value, oldValue) {
 					if (value === 'push' || value === 'reveal') {
@@ -49,9 +49,9 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 				}, true);
 				scope.$watch('show', function watchShow(value, oldValue) {
 					if (value) {
-						container.removeClass('close');
+						container.removeClass('ast-close');
 					} else {
-						container.addClass('close');
+						container.addClass('ast-close');
 					}
 				}, true);
 			}

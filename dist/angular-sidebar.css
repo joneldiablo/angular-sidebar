@@ -118,15 +118,15 @@ ast .ast-swipe-show.right {
  * container
  */
 
-.ast-fixed.left {
+.ast-fixed.ast-left {
   padding-left: 280px;
 }
 
-.ast-fixed.right {
+.ast-fixed.ast-right {
   padding-right: 280px;
 }
 
-.ast-fixed.close {
+.ast-fixed.ast-close {
   padding-right: 0;
   padding-left: 0;
 }

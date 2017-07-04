@@ -99,13 +99,13 @@ ast {
  */
 
 .ast-fixed {
-    &.left {
+    &.ast-left {
         padding-left: $astWidth;
     }
-    &.right {
+    &.ast-right {
         padding-right: $astWidth;
     }
-    &.close {
+    &.ast-close {
         padding-right: 0;
         padding-left: 0;
     }
