@@ -54,6 +54,26 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 						container.addClass('ast-close');
 					}
 				}, true);
+				scope.swipeEvent = function ($event, dir) {
+					if (scope.swipeToOpen) {
+						if (element[0].querySelector(".ast-wrap").contains($event.target)) {
+							if (dir === 'r' && scope.position === 'right') {
+								scope.show = false;
+							}
+							if (dir === 'l' && scope.position === 'left') {
+								scope.show = false;
+							}
+						} else {
+							if (dir === 'r' && scope.position === 'left') {
+								scope.show = true;
+							}
+							if (dir === 'l' && scope.position === 'right') {
+								scope.show = true;
+							}
+						}
+					}
+					//
+				}
 			}
 		};
 	}

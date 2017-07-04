@@ -24,7 +24,7 @@
 
 <body>
   <div ng-controller="TesterCtrl">
-    <ast display="display" position="position" mask="mask" content-selector="#container" show="showAst">
+    <ast display="display" position="position" swipe-to-open="swipeToOpen" mask="mask" content-selector="#container" show="showAst">
       <ast-body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suscipit dolor sit amet nisi cursus laoreet. Sed nibh
         neque, rutrum et tempus ut, imperdiet at libero. Maecenas a massa vitae dolor porta interdum. Morbi non maximus ipsum.
         Quisque non elit auctor, convallis libero eu, pellentesque magna. Suspendisse tempus nisi sit amet enim posuere faucibus.
@@ -52,7 +52,8 @@
         ultricies arcu non maximus facilisis.</ast-body>
     </ast>
     <div id="container">
-      show: <input type="checkbox" ng-model="showAst" />({{showAst}}) mask: <input type="checkbox" ng-model="mask" />({{mask}})
+      show: <input type="checkbox" ng-model="showAst" />({{showAst}}) swipeToOpen: <input type="checkbox" ng-model="swipeToOpen"
+      />({{swipeToOpen}}) mask: <input type="checkbox" ng-model="mask" />({{mask}})
       <select ng-model="display" ng-init="displayOptions = ['reveal','push','overlay']">
         <option ng-repeat="opt in displayOptions" ng-value="opt">{{opt}}</option>
       </select> ({{display}})

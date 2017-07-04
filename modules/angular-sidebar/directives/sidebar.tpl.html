@@ -1,6 +1,5 @@
 <div class="ast-wrap" ng-class="{mask:mask}" ng-show="show" ng-click="show=false">
-    <div class="ast" ng-swipe-right="show = position == 'right'? false: show" ng-swipe-left="show = position == 'left'? false: show"
-        ng-class="[display, position]">
+    <div class="ast" ng-swipe-right="swipeEvent($event, 'r')" ng-swipe-left="swipeEvent($event, 'l')" ng-class="[display, position]">
         <header class="ast-header">
             <div ng-transclude="header">
                 <h4 style="text-align: center; margin: 16px 0;">header</h4>
@@ -15,5 +14,5 @@
         </footer>
     </div>
 </div>
-<div ng-show="!show && swipeToOpen" ng-swipe-right="show = position == 'right'? show: true" ng-swipe-left="show = position == 'left'? show: true"
-    class="ast-swipe-show" ng-class="position"></div>
+<div ng-show="!show && swipeToOpen" ng-swipe-right="swipeEvent($event, 'r')" ng-swipe-left="swipeEvent($event, 'l')" class="ast-swipe-show"
+    ng-class="position"></div>
