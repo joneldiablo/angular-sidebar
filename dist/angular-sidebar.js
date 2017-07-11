@@ -26,7 +26,6 @@
 
 })(angular);
 
-angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"ast-wrap\" ng-class=\"{mask:mask}\" ng-show=\"show\" ng-click=\"show=false\"><div class=\"ast\" ng-swipe-right=\"swipeEvent($event, \'r\')\" ng-swipe-left=\"swipeEvent($event, \'l\')\" ng-class=\"[display, position]\"><header class=\"ast-header\"><div ng-transclude=\"header\"><h4 style=\"text-align: center; margin: 16px 0\">header</h4></div><div class=\"ast-close\" ng-transclude=\"close\"><span ng-click=\"show = false\" style=\"text-align: center; width: 100%; display: block; padding: 26px 16px; box-sizing: border-box; cursor: pointer\">X</span></div></header><aside class=\"ast-body\" ng-transclude></aside><footer class=\"ast-footer\" ng-transclude=\"footer\"><h4 style=\"text-align: center; margin: 11px 0\">footer</h4></footer></div></div><div ng-show=\"!show && swipeToOpen\" ng-swipe-right=\"swipeEvent($event, \'r\')\" ng-swipe-left=\"swipeEvent($event, \'l\')\" class=\"ast-swipe-show\" ng-class=\"position\"></div>");}]);
 /**
  * Created by coichedid on 21/04/15.
  */
@@ -58,7 +57,7 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 				scope.mask = typeof scope.mask !== 'undefined' ? scope.mask : false;
 				scope.swipeToOpen = typeof scope.swipeToOpen === 'undefined' ? true : scope.swipeToOpen;
 				scope.contentSelector = !scope.contentSelector ? 'body' : scope.contentSelector;
-				scope.container = angular.element(document.querySelector(scope.contentSelector));
+				scope.container = angular.element(document.querySelectorAll(scope.contentSelector));
 				var container = scope.container;
 				var ast = angular.element(element[0].querySelector('.ast'));
 				ast.on("click", function ($event) {
@@ -107,3 +106,4 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 		};
 	}
 ]);
+angular.module("angular-sidebar.directives", []).run(["$templateCache", function($templateCache) {$templateCache.put("/modules/angular-sidebar/directives/sidebar.tpl.html","<div class=\"ast-wrap\" ng-class=\"{mask:mask}\" ng-show=\"show\" ng-click=\"show=false\"><div class=\"ast\" ng-swipe-right=\"swipeEvent($event, \'r\')\" ng-swipe-left=\"swipeEvent($event, \'l\')\" ng-class=\"[display, position]\"><header class=\"ast-header\"><div ng-transclude=\"header\"><h4 style=\"text-align: center; margin: 16px 0\">header</h4></div><div class=\"ast-close\" ng-transclude=\"close\"><span ng-click=\"show = false\" style=\"text-align: center; width: 100%; display: block; padding: 26px 16px; box-sizing: border-box; cursor: pointer\">X</span></div></header><aside class=\"ast-body\" ng-transclude></aside><footer class=\"ast-footer\" ng-transclude=\"footer\"><h4 style=\"text-align: center; margin: 11px 0\">footer</h4></footer></div></div><div ng-show=\"!show && swipeToOpen\" ng-swipe-right=\"swipeEvent($event, \'r\')\" ng-swipe-left=\"swipeEvent($event, \'l\')\" class=\"ast-swipe-show\" ng-class=\"position\"></div>");}]);

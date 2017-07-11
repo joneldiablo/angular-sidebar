@@ -29,7 +29,7 @@ angular.module('angular-sidebar').directive('ast', ["$compile", "$swipe",
 				scope.mask = typeof scope.mask !== 'undefined' ? scope.mask : false;
 				scope.swipeToOpen = typeof scope.swipeToOpen === 'undefined' ? true : scope.swipeToOpen;
 				scope.contentSelector = !scope.contentSelector ? 'body' : scope.contentSelector;
-				scope.container = angular.element(document.querySelector(scope.contentSelector));
+				scope.container = angular.element(document.querySelectorAll(scope.contentSelector));
 				var container = scope.container;
 				var ast = angular.element(element[0].querySelector('.ast'));
 				ast.on("click", function ($event) {
